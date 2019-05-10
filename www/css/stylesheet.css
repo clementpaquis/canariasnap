@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0px;
+    border:0;
+}
+
+#snap{
+    height:90%;
+    width:90%;
+    margin-top:25%;
+    margin-left:auto;
+    margin-right:auto;
+    display:none;
+}
+
+div#cam-btn{
+    background-image:url('../img/cam.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:30px;
+}
+
+div#home-btn{
+    background-image:url('../img/home.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:30px;
+}
+
+div#back-btn{
+    background-image:url('../img/back.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:30px;
+}
+
+.btn{
+    float:left;
+}
+
+.header{
+    background-color : #DD0000;
+    overflow: hidden;
+    position : fixed;
+    top:0;
+    height: 10%;
+    width:100%;
+    color:white;
+    text-align:center;
+    line-height: 100%;
+    font-size:20px;
+}
+
+.navbar{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    height:10%;
+    width: 100%;
+}
+
+.nav-btn {
+    background-color: #DD0000;
+    float: left;
+    width: 33.33%;
+    height:100%;
+    text-align:center;
+
+    -o-transition:1s;
+    -ms-transition:1s;
+    -moz-transition:1s;
+    -webkit-transition:1s;
+    /* ...and now for the proper property */
+    transition:1s;
+}
+
+.nav-btn:active{
+    opacity : 0.6;
+
+    -o-transition:.2s;
+    -ms-transition:.2s;
+    -moz-transition:.2s;
+    -webkit-transition:.2s;
+    /* ...and now for the proper property */
+    transition:.2s;
+}
