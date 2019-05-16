@@ -43,10 +43,17 @@ var app = {
     },
 };
 
+/**
+ * BINDINGS
+ */
+
 //binding camera button
 function getCameraStream(){
     document.getElementById('cam-btn').addEventListener('click',takePicture);
 }
+
+//binding camera button
+document.getElementById('cam-btn').addEventListener('click',takePicture);
 
 //binding return button
 document.getElementById('back-btn').addEventListener('click',function(){
@@ -56,25 +63,83 @@ document.getElementById('back-btn').addEventListener('click',function(){
     }
 });
 
+//binding upload button
+document.getElementById('home-btn').addEventListener('click',function(){
+    var img = document.getElementById('snap');
+    console.log(img.src);
+    var imageData = img.src;
+});
+
+
+/**
+ * FUNCTIONS
+ */
+
 //get camera stream and take picture
 function takePicture(){
-    navigator.camera.getPicture(success,error,{
-        quality:50,
+    navigator.camera.getPicture(success,function(error){
+        
+    },{
+        quality:100,
         correctOrientation: true,
-        destinationType:Camera.DestinationType.DATA_URL,
+        destinationType:Camera.DestinationType.FILE_URI,
+        cameraDirection: Camera.Direction.BACK
     });
+}
+
+function uploadImage(imageData){
+    var ft = new FileTransfer();
+    //ft.upload(imageData,)
 }
 
 //shows image taken by takePicture() in dom
 function success(imageData){
     var img = document.getElementById('snap');
-    img.src = "data:image/jpeg;base64,"+imageData;
+    img.src = imageData; // "data:image/jpeg;base64," if DATA_URL
     document.getElementById('snap').style.display='block';
+    document.getElementById('spinner').style.display = "block";
+
+    //options for the file transfer
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = imageData.substr(imageData.lastIndexOf('/')+1);
+    options.mimeType = "image/jpeg";
+    options.headers = {
+        Connection: "close"
+     };
+
+    var params = {};
+    params.value1 = "test";
+    params.value2 = "param";
+    options.params = params;
+    options.chunkedMode = false;
+
+    //transfer to server
+    var ft = new FileTransfer();
+    ft.upload(imageData, "http://192.168.56.1/canariasnap/upload.php", function(result){
+
+        //get JSON result and get res array from object
+        var res = JSON.stringify(result);
+        var array = JSON.parse(res);
+
+        //split string to get result top5 as a tab
+        var topFive = array.response.split(",");
+        
+        //get result div and put top1 in
+        var node = document.getElementById('result');
+        document.getElementById('spinner').style.display = "none";
+        node.textContent = node.textContent + topFive[0].replace(/_/g, " ");
+        document.getElementById('result').style.display = "block";
+
+    }, function(error){
+        //show error 
+        alert('error : ' + JSON.stringify(error));
+    }, options,true);
 }
 
 //if an error occurs with takePicture()
 function error(err){
-    console.log('error : ' + err);
+    alert('error : ' + err);
 }
 
 this.getCameraStream();
