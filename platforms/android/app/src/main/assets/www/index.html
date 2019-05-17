@@ -38,15 +38,32 @@
     </head>
     <body>
         <div class="app" id="app">
-            <div class="header">Canaria Snap</div>
-            <!-- <img src="img/test.jpg" id="snap"/> -->
-            <img src="img" id="snap"/>
-            <div class="lds-ellipsis" id="spinner"><div></div><div></div><div></div><div></div></div>
-            <div id="result">Identified spiece : </div>
-            <div class="navbar">
-                <div class="nav-btn" id="home-btn"></div>
-                <div class="nav-btn" id="cam-btn"></div>
-                <div class="nav-btn" id="back-btn"></div>
+            <div class="header">
+                <p class="title">My app</p>
+            </div>
+            <div class="container">
+                <img src="img/test.jpg" id="snap"/>
+                <!-- <img src="img" id="snap"/> -->
+                <div class="lds-ellipsis" id="spinner"><div></div><div></div><div></div><div></div></div>
+                <div id="result">Identified specie : celtis occidentalis </div>
+                <div id="info">
+                    <p class="more">More information</p>
+                </div>
+                <div id="myModal" class="popup">
+                        <!-- Modal content -->
+                    <div class="popup-content">
+                        <div class="popup-header">
+                            <span class="popup-title">Additional Information</span>
+                            <span class="popup-close">&times;</span>
+                        </div>
+                        <span id="species"/>
+                    </div>
+                </div>
+                <div class="navbar">
+                    <div class="nav-btn" id="home-btn"></div>
+                    <div class="nav-btn" id="cam-btn"></div>
+                    <div class="nav-btn" id="back-btn"></div>
+                </div>
             </div>
         </div>
 

@@ -19,6 +19,9 @@
         <param name="android-package" value="com.hiddentao.cordova.filepath.FilePath" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="CDVOrientation">
+        <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation" />
+    </feature>
     <feature name="ExitApp">
         <param name="android-package" value="cordova.custom.plugins.exitapp.ExitApp" />
     </feature>
@@ -41,4 +44,5 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="Fullscreen" value="true" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="Orientation" value="portrait" />
 </widget>
