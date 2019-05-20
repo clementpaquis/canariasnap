@@ -16,7 +16,7 @@
     margin-left:auto;
     margin-right:auto;
     display:block;
-    /* display:none; */
+    display:none;
 }
 
 div#cam-btn{
@@ -110,7 +110,7 @@ div#result{
     text-align : center;
     font-family: 'Trebuchet MS';
     line-height: 22px;
-    /* display:none; */
+    display:none;
 }
 
 div#info{
@@ -119,13 +119,13 @@ div#info{
   margin-top:20px;
   width: 50%;
   height : 40px;
-  display:table;
+  /* display:table; */
   margin-left : auto;
   margin-right: auto;
   text-align : center;
   line-height: 22px;
   border-radius:5px;
-  /* display:none; */
+  display:none;
 
   -o-transition:1s;
   -ms-transition:1s;

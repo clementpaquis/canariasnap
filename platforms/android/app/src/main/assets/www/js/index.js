@@ -76,7 +76,6 @@ function goHome(){
 //get camera stream and take picture
 function takePicture(){
     navigator.camera.getPicture(success,function(error){
-        
     },{
         cameraDirection : 1,
         quality:70,
@@ -124,6 +123,7 @@ function success(imageData){
         document.getElementById('spinner').style.display = "none";
         node.textContent = node.textContent + topFive[0].replace(/_/g, " ");
         document.getElementById('result').style.display = "block";
+        document.getElementById('info').style.display = "table";
 
         this.fillInfo(topFive);
 
