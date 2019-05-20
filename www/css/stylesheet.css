@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0px;
     border:0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #snap{
@@ -15,7 +16,7 @@
     margin-top:25%;
     margin-left:auto;
     margin-right:auto;
-    display:block;
+    border-radius:5px;
     display:none;
 }
 
@@ -62,13 +63,11 @@ div#back-btn{
 .title{
   display:table-cell;
   vertical-align: middle;
-  font-family : 'Times New Roman', Times, serif;
 }
 
 .more{
   display:table-cell;
   vertical-align:middle;
-  font-family:'Trebuchet MS';
 }
 
 .navbar{
@@ -171,7 +170,7 @@ div#info{
 .popup-header{
   background-color : #0768a9; 
   border-radius : 5px;
-  height : 30px;
+  height : 40px;
   text-align : center;
   color : white;
   line-height:150%;
@@ -192,11 +191,10 @@ div#info{
   font-weight: bold;
 }
 
-#species{
+.species{
   margin-top:5%;
-  margin-left : 2%;
-  margin-right : 2%;
-  white-space:pre-wrap;
+  margin-left : 5%;
+  margin-bottom : 5%;
 }
 
 .close:hover,

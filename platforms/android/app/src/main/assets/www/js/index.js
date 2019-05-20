@@ -80,6 +80,7 @@ function takePicture(){
         cameraDirection : 1,
         quality:70,
         correctOrientation: true,
+        allowEdit : true,
         destinationType:Camera.DestinationType.FILE_URI
         //cameraDirection: Camera.Direction.BACK
     });
@@ -171,12 +172,12 @@ function fillInfo(array){
     top4 = array[3].replace(/_/g, " ");
     top5 = array[4].replace(/_/g, " ");
 
-    node = document.getElementById('species');
-    node.textContent = "Most likely : " + top1 + "\n";
-    node.textContent += "2nd most likely : " + top2 + "\n";
-    node.textContent += "3rd most likely : " + top3 + "\n";
-    node.textContent += "4th most likely : " + top4 + "\n";
-    node.textContent += "5th most likely : " + top5 + "\n";
+    node = document.getElementsByClassName('species');
+    node[0].textContent = "Most likely : " + top1 + "\n";
+    node[1].textContent = "2nd most likely : " + top2 + "\n";
+    node[2].textContent = "3rd most likely : " + top3 + "\n";
+    node[3].textContent = "4th most likely : " + top4 + "\n";
+    node[4].textContent = "5th most likely : " + top5 + "\n";
 
 }
 
