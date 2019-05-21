@@ -47,48 +47,47 @@ var app = {
  * BINDINGS
  */
 
-//binding home button
-document.getElementById('home-btn').addEventListener('click',goHome);
-
 //binding camera button
-document.getElementById('cam-btn').addEventListener('click',takePicture);
+document.getElementById('cam-btn').addEventListener('click',takePictureFromCamera);
 
-//binding return button
-document.getElementById('back-btn').addEventListener('click',function(){
-    var res = confirm("Leave Canaria Snap ?");
-    if(res){
-        navigator.app.exitApp();
-    }
-});
+//binding gallery button
+document.getElementById('gallery-btn').addEventListener('click',takePictureFromGallery);
 
 //binding more info button
-document.getElementById('info').addEventListener('click',getInfo);
+//document.getElementById('info').addEventListener('click',getInfo);
 
 /**
  * FUNCTIONS
  */
 
-//go to home view
-function goHome(){
-
-}
-
 //get camera stream and take picture
-function takePicture(){
-    navigator.camera.getPicture(success,function(error){
+function takePictureFromCamera(){
+    navigator.camera.getPicture(camSuccess,function(error){
     },{
         cameraDirection : 1,
         quality:70,
         correctOrientation: true,
         allowEdit : true,
-        destinationType:Camera.DestinationType.FILE_URI
-        //cameraDirection: Camera.Direction.BACK
+        destinationType:Camera.DestinationType.FILE_URI,
+        cameraDirection: Camera.Direction.BACK
     });
 }
 
+//get picture from gallery
+function takePictureFromGallery(){
+    //TODO
+}
+
 //shows image taken by takePicture() in dom
-function success(imageData){
+function camSuccess(imageData){
+
     var img = document.getElementById('snap');
+
+    //hide top5 if a previous one is displayed
+    if(img.style.display == "block"){
+        document.getElementById('top-five').style.display = "none";
+    }
+
     img.src = imageData; // "data:image/jpeg;base64," if DATA_URL
     document.getElementById('snap').style.display='block';
     document.getElementById('spinner').style.display = "block";
@@ -120,17 +119,18 @@ function success(imageData){
         var topFive = array.response.split(",");
         
         //get result div and put top1 in
-        var node = document.getElementById('result');
         document.getElementById('spinner').style.display = "none";
-        node.textContent = node.textContent + topFive[0].replace(/_/g, " ");
-        document.getElementById('result').style.display = "block";
-        document.getElementById('info').style.display = "table";
+        // document.getElementById('info').style.display = "table";
 
         this.fillInfo(topFive);
+        
+        //display top5
+        document.getElementById('top-five').style.display = "block";
 
     }, function(error){
         //show error 
         alert('Error : ' + JSON.stringify(error));
+        document.getElementById('spinner').style.display = "none";
     }, options,true);
 }
  
@@ -173,12 +173,31 @@ function fillInfo(array){
     top5 = array[4].replace(/_/g, " ");
 
     node = document.getElementsByClassName('species');
-    node[0].textContent = "Most likely : " + top1 + "\n";
-    node[1].textContent = "2nd most likely : " + top2 + "\n";
-    node[2].textContent = "3rd most likely : " + top3 + "\n";
-    node[3].textContent = "4th most likely : " + top4 + "\n";
-    node[4].textContent = "5th most likely : " + top5 + "\n";
+    node[0].textContent = "#1 " + top1 + "\n";
+    node[1].textContent = "#2 " + top2 + "\n";
+    node[2].textContent = "#3 " + top3 + "\n";
+    node[3].textContent = "#4 " + top4 + "\n";
+    node[4].textContent = "#5 " + top5 + "\n";
 
+    node[0].addEventListener('click',function(){
+        window.open("https://www.google.com/search?q=" + node[0].textContent.split(" ").slice(-2)[0] + "%20" + node[0].textContent.split(" ").slice(-1) + "&tbm=isch");
+    });
+
+    node[1].addEventListener('click',function(){
+        window.open("https://www.google.com/search?q=" + node[1].textContent.split(" ").slice(-2)[0] + "%20" + node[1].textContent.split(" ").slice(-1) + "&tbm=isch");
+    });
+
+    node[2].addEventListener('click',function(){
+        window.open("https://www.google.com/search?q=" + node[2].textContent.split(" ").slice(-2)[0] + "%20" + node[2].textContent.split(" ").slice(-1) + "&tbm=isch");
+    });
+
+    node[3].addEventListener('click',function(){
+        window.open("https://www.google.com/search?q=" + node[3].textContent.split(" ").slice(-2)[0] + "%20" + node[3].textContent.split(" ").slice(-1) + "&tbm=isch");
+    });
+
+    node[4].addEventListener('click',function(){
+        window.open("https://www.google.com/search?q=" + node[4].textContent.split(" ").slice(-2)[0] + "%20" + node[4].textContent.split(" ").slice(-1) + "&tbm=isch");
+    });
 }
 
 app.initialize();

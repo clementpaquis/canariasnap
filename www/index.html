@@ -39,19 +39,26 @@
     <body>
         <div class="app" id="app">
             <div class="header">
-                <p class="title">My app</p>
+                <p class="title">Leaf Recognition</p>
             </div>
             <div class="container">
-                <img src="img/test.jpg" id="snap"/>
-                <!-- <img src="img" id="snap"/> -->
+                <!-- <img src="img/test.jpg" id="snap"/> -->
+                <img src="img" id="snap"/>
                 <div class="lds-ellipsis" id="spinner"><div></div><div></div><div></div><div></div></div>
-                <div id="result">Identified specie : </div>
-                <div id="info">
+                <!-- <div id="info">
                     <p class="more">More information</p>
+                </div> -->
+                <div id="top-five">
+                    <p id="predictions-title">TOP 5 Predictions :</p>
+                    <p class="species"></p>
+                    <p class="species"></p>
+                    <p class="species"></p>
+                    <p class="species"></p>
+                    <p class="species"></p>
                 </div>
                 <div id="myModal" class="popup">
                         <!-- Modal content -->
-                    <div class="popup-content">
+                    <!-- <div class="popup-content">
                         <div class="popup-header">
                             <span class="popup-title">Additional Information</span>
                             <span class="popup-close">&times;</span>
@@ -61,12 +68,11 @@
                         <div class="species">Chene orange</div>
                         <div class="species">Chene violet</div>
                         <div class="species">Chene noir</div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="navbar">
-                    <div class="nav-btn" id="home-btn"></div>
                     <div class="nav-btn" id="cam-btn"></div>
-                    <div class="nav-btn" id="back-btn"></div>
+                    <div class="nav-btn" id="gallery-btn"></div>
                 </div>
             </div>
         </div>

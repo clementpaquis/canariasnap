@@ -1,66 +1,78 @@
 @font-face {
-  font-family: edmunds;
-  src: url(edmunds.regular.ttf);
+  font-family: minya-nouvelle;
+  src: url(minya-nouvelle.regular.ttf);
+}
+
+@font-face {
+  font-family: abscissa;
+  src: url(abscissa.regular.ttf);
 }
 
 *{
-    margin: 0;
-    padding: 0px;
-    border:0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0px;
+  border:0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #snap{
-    height:90%;
-    width:90%;
-    margin-top:25%;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius:5px;
-    display:none;
+  height:90%;
+  width:90%;
+  margin-top:25%;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:5px;
+  display:none;
 }
 
 div#cam-btn{
-    background-image:url('../img/cam.png');
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size:30px;
+  background-image:url('../img/cam.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:30px;
 }
 
-div#home-btn{
-    background-image:url('../img/home.png');
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size:30px;
+div#gallery-btn{
+  background-image:url('../img/gallery.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size:30px;
 }
 
-div#back-btn{
-    background-image:url('../img/back.png');
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size:30px;
+div#top-five{
+  margin-top : 3%;
+  display : none;
+}
+
+#predictions-title{
+  font-family: abscissa;
+  font-size : 25px;
+  color : #0768a9;
+  text-align:center;
+  margin-bottom : 3%;
 }
 
 .btn{
-    float:left;
+  float:left;
 }
 
 .header{
-    background-color : #0768a9; /* blue canaria 0768a9, red DD0000*/
-    overflow: hidden;
-    position : fixed;
-    top:0;
-    height: 10%;
-    width:100%;
-    color:white;
-    text-align:center;
-    vertical-align: middle;
-    line-height: 100%;
-    font-size:40px;
-    display:table;
+  background-color : #0768a9; /* blue canaria 0768a9, red DD0000*/
+  overflow: hidden;
+  position : fixed;
+  top:0;
+  height: 10%;
+  width:100%;
+  color:white;
+  text-align:center;
+  vertical-align: middle;
+  line-height: 100%;
+  font-size:40px;
+  display:table;
 }
 
 .title{
+  font-family: minya-nouvelle;
   display:table-cell;
   vertical-align: middle;
 }
@@ -71,47 +83,35 @@ div#back-btn{
 }
 
 .navbar{
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    height:10%;
-    width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  height:10%;
+  width: 100%;
 }
 
 .nav-btn {
-    background-color: #0768a9;
-    float: left;
-    width: 33.33%;
-    height:100%;
-    text-align:center;
+  background-color: #0768a9;
+  float: left;
+  width: 50%;
+  height:100%;
+  text-align:center;
 
-    -o-transition:1s;
-    -ms-transition:1s;
-    -moz-transition:1s;
-    -webkit-transition:1s;
-    transition:1s;
+  -o-transition:1s;
+  -ms-transition:1s;
+  -moz-transition:1s;
+  -webkit-transition:1s;
+  transition:1s;
 }
 
 .nav-btn:active{
-    opacity : 0.6;
-    -o-transition:.2s;
-    -ms-transition:.2s;
-    -moz-transition:.2s;
-    -webkit-transition:.2s;
-    transition:.2s;
+  opacity : 0.6;
+  -o-transition:.2s;
+  -ms-transition:.2s;
+  -moz-transition:.2s;
+  -webkit-transition:.2s;
+  transition:.2s;
 }
-
-div#result{
-    margin-top:30px;
-    width: 60%;
-    margin-left : auto;
-    margin-right: auto;
-    text-align : center;
-    font-family: 'Trebuchet MS';
-    line-height: 22px;
-    display:none;
-}
-
 div#info{
   background-color: #0768a9;
   color : white;
@@ -192,9 +192,10 @@ div#info{
 }
 
 .species{
-  margin-top:5%;
-  margin-left : 5%;
-  margin-bottom : 5%;
+  font-family : abscissa;
+  font-size : 20px;
+  margin-bottom : 3%;
+  text-align:center;
 }
 
 .close:hover,
@@ -210,12 +211,12 @@ ANIMATIONS
 
 /*spinner*/
 .lds-ellipsis {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin-left : auto;
-    margin-right : auto;
-    display: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin-left : auto;
+  margin-right : auto;
+  display: none;
   }
   .lds-ellipsis div {
     position: absolute;
